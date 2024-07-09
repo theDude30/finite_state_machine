@@ -8,6 +8,7 @@ import AppFooter from '../components/AppFooter';
 import {MOCK_PRODUCT} from '../mockProduct';
 import SignInModal from '../components/SignInModal';
 import { UserProvider } from '../components/UserContext';
+import AddPaymentMethod from '../components/AddPaymentMethod';
 
 const layoutStyle = {
   borderRadius: 8,
@@ -57,6 +58,8 @@ function App() {
     setIsSigninModalOpen(false);
   };
 
+
+
   return (
 
       <ConfigProvider >
@@ -64,7 +67,7 @@ function App() {
         <Flex gap="middle" wrap>
           <Layout style={layoutStyle}>
             <Header style={headerStyle}><AppHeader signIn={openSignInModal} /></Header>
-            <Content style={contentStyle}><Product product={MOCK_PRODUCT}/></Content>
+            <Content style={contentStyle}><Product product={MOCK_PRODUCT} /></Content>
             <Footer style={footerStyle}><AppFooter /></Footer>
           </Layout>
         </Flex>

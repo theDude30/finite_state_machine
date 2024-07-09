@@ -3,7 +3,7 @@ import React from "react";
 import { UserContext } from "./UserContext";
 
 
-export default function AppHeader({userName,signIn}) {
+export default function AppHeader({signIn}) {
     const {user , setUser} = React.useContext(UserContext);
 
     const onSignClick =(ev)=>{
