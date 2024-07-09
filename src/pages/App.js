@@ -9,6 +9,7 @@ import {MOCK_PRODUCT} from '../mockProduct';
 import SignInModal from '../components/SignInModal';
 import { UserProvider } from '../components/UserContext';
 import AddPaymentMethod from '../components/AddPaymentMethod';
+import BiddingModal from '../components/BiddingModal';
 
 const layoutStyle = {
   borderRadius: 8,
@@ -73,6 +74,7 @@ function App() {
         </Flex>
         {isSigninModalOpen && <SignInModal handleCancel={handleCancel} handleOk={closeModal} />}
         </UserProvider>
+        <BiddingModal />
       </ConfigProvider>
   );
 }
