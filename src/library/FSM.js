@@ -1,5 +1,5 @@
 
-import React,{useState,useEffect,useCallback} from 'react';
+import {useState,useEffect,useCallback} from 'react';
 
 class FSM {
     constructor(conditions = {}) {
@@ -18,7 +18,6 @@ class FSM {
       this.states = config.states;
       this.currentState = config.initial;
       this.isInitialized = true;
-      console.log('FSM initilized with state:',this.currentState)
       this.evaluateState();
     }
 
@@ -38,7 +37,6 @@ class FSM {
         if (currentStateConfig?.always) {
           for ( const transition of currentStateConfig.always){
             if(this.checkCondition(transition.cond)){
-              console.log(`Always transition from ${this.currentState} to ${transition.target}`)
               this.executeActions(transition.actions);
               this.currentState = transition.target;
               stateChanged = true;
@@ -53,7 +51,6 @@ class FSM {
       if (!conditionName) return true;
       const condition = this.conditions[conditionName];
       const result = condition ? condition(this.context) : true;
-      console.log(`Checking condition: ${conditionName}, result ${result}`);
       return result;
     }
 
@@ -68,33 +65,41 @@ class FSM {
 
 
     transition(event) {
+      console.log(`Transition attempted: ${event}, Current state: ${this.currentState}`);
       if(!this.isInitialized){
         console.error('FSM not initilized');
         return;
       }
+
       if(this.currentState === null) {
         console.error('Current state is null. FSM may not be properly initilized');
         return false;
       }
-      console.log(`Transition triggered: ${event}, Current State: ${this.currentState}`);
       const currentStateConfig = this.states[this.currentState];
       if(!currentStateConfig){
         console.error('Invalid current state: ', this.currentState);
         return false;
       }
 
+
+      if (currentStateConfig.type === 'final') {
+        return false;
+      }
+
       if (currentStateConfig?.on && currentStateConfig?.on[event]) {
         for (const transition of currentStateConfig.on[event]) {
+          console.log(`Found transition for event ${event}:`, transition);
+
           if (this.checkCondition(transition.cond)) {
             this.executeActions(transition.actions);
             this.currentState = transition.target;
-            console.log(`New state after transition: ${this.currentState}`)
+            console.log(`Transitioned to new state: ${this.currentState}`);
             this.evaluateState()
             return true;
           }
         }
       }
-      console.log(`no valid transition found for event ${event} in state: ${this.currentState}`)
+      console.log(`Transitioned to new state: ${this.currentState}`);
       return false;
     }
 
@@ -123,14 +128,12 @@ class FSM {
       fetch(configUrl)
       .then(response => response.json())
       .then(config => {
-        console.log('received FSM config: ',config);
         if(isMounted){
           newFsm.initialize(config);
           setFsm(newFsm);
           setState(newFsm.getState())
           setInitilized(true)
           setIsLoading(false);
-          console.log('FSM< initilized, current state: ' ,newFsm.getState());
         }
       })
       .catch(err =>{
@@ -140,18 +143,17 @@ class FSM {
           setIsLoading(false);
         }
       });
-
-      return () => {
-        isMounted=false
-      };
-    },[configUrl,conditions])
+    },[configUrl])
 
 
     const transition = useCallback((event) => {
+      console.log(`useFSM: Transition called with event: ${event}`);
       if (fsm && isInitialized) {
         if(fsm.transition(event)){
-          console.log(`Attempting Transition ${event}`)
+          console.log(`useFSM: Transition called with event: ${event}`);
           setState(fsm.getState());
+        }else {
+          console.log(`useFSM: Transition failed`);
         }
       }
       else{
