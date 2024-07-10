@@ -2,6 +2,7 @@
 import { Divider, Flex,Button } from "antd";
 import productImage from '../assets/product-image.webp';
 import sellerImg from '../assets/seller_img.jpeg';
+import './Product.css'
 
 function Seller({seller}){
     return (<div>
@@ -30,18 +31,18 @@ function AuctionInformation({price,bidCount}){
 
 export default function Product({product}) {
     return (
-    <Flex gap="middle"  style={{width: "100%"}}>
-            <div style={{width: "25%"}}>
-            <img src={productImage} style={{width: "100%"}}/>
+    <Flex gap="middle" className="product_container">
+            <div className="img_container">
+            <img src={productImage} className="product_img"/>
             </div>
-            <div style={{width: "75%"}}>
-                <span style={{fontWeight: "bold",float: "left",padding: 10,lineHeight:"normal"}}>{product.title}</span>
-                <Divider style={{margin: 10}}/>
+            <div className="product_details">
+                <span className="title" >{product.title}</span>
+                <Divider className="divider" />
                 <Seller seller={product.seller}/>
-                <div style={{lineHeight: "normal",marginLeft:10}}>
-                <AuctionInformation price={product.price} bidCount={product.bidCount} />
+                <div className="auction_info">
+                    <AuctionInformation price={product.price} bidCount={product.bidCount} />
                 </div>
-                <Button type="primary" style={{minWidth: "70%",minHeight: 48,margin:40,float: "left"}}><h3 style={{fontSize:16}}>place bid</h3></Button>
+                <Button type="primary" className="place_bid_btn"><h3 className="place_bid_btn_label">place bid</h3></Button>
             </div>
     </Flex>)
 }

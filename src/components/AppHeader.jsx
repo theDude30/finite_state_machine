@@ -1,11 +1,9 @@
 
 import React from "react";
-import { UserContext } from "./UserContext";
 
 
 export default function AppHeader({signIn}) {
-    const {user , setUser} = React.useContext(UserContext);
-
+    const user = localStorage.getItem("userName")
     const onSignClick =(ev)=>{
         ev.preventDefault();
         signIn();

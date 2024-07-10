@@ -1,14 +1,11 @@
 
 import { Content, Footer, Header } from 'antd/es/layout/layout';
-import { Button, ConfigProvider, Flex, Layout } from 'antd';
-import React,{useState} from 'react';
+import { ConfigProvider, Flex, Layout } from 'antd';
+import React from 'react';
 import AppHeader from '../components/AppHeader';
 import Product from '../components/Product';
 import AppFooter from '../components/AppFooter';
-import {MOCK_PRODUCT} from '../mockProduct';
-import SignInModal from '../components/SignIn';
-import { UserProvider } from '../components/UserContext';
-import AddPaymentMethod from '../components/AddPaymentMethod';
+import {MOCK_PRODUCT} from '../mocks/mockProduct';
 import BiddingModal from '../components/BiddingModal';
 
 const layoutStyle = {
@@ -47,9 +44,7 @@ const footerStyle: React.CSSProperties = {
 function App() {
 
   return (
-
       <ConfigProvider >
-      <UserProvider>
         <Flex gap="middle" wrap>
           <Layout style={layoutStyle}>
             <Header style={headerStyle}><AppHeader /></Header>
@@ -57,10 +52,7 @@ function App() {
             <Footer style={footerStyle}><AppFooter /></Footer>
           </Layout>
         </Flex>
-
         <BiddingModal />
-        </UserProvider>
-
       </ConfigProvider>
   );
 }

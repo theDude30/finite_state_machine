@@ -1,0 +1,40 @@
+.product_container {
+    width:100%;
+}
+.img_container {
+    width: 25%;
+}
+.product_img {
+    width: 100%;
+}
+
+.product_details {
+    width: 75%;
+}
+
+.title {
+font-weight: bold;
+float: left;
+padding: 10px;
+line-height: normal;
+}
+
+.divider {
+    margin: 10px;
+}
+
+.auction_info {
+line-height: normal;
+margin-left: 10;
+}
+
+.place_bid_btn {
+min-width: 70%;
+min-height: 48px;
+margin: 40px;
+float: left;
+}
+
+.place_bid_btn_label {
+    font-size: 16px;
+}

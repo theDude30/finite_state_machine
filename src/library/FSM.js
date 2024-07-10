@@ -162,8 +162,6 @@ class FSM {
     }, [fsm,isInitialized]);
 
     const getStateConfig = useCallback(()=> (fsm &&  isInitialized ? fsm.getStateConfig() : {} ),[fsm,isInitialized]);
-
-
     return { state,transition,isLoading,error,isInitialized,getStateConfig}
 
   }

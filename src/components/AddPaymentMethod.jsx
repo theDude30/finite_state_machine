@@ -17,7 +17,7 @@ export default function AddPaymentMethod({onSuccess}){
     }
 
 
-    return  <div>
+    return  <form onSubmit={addPaymentMethod}>
                 <p>Enter your payment details to add a new card.</p>
                 <div>
                     <span >card Number</span>
@@ -32,6 +32,8 @@ export default function AddPaymentMethod({onSuccess}){
                 options={YEARS} />
                 <p style={{marginBottom:0}}>CVV</p>
                 <Input  type='text' style={{width:100}}></Input>
-                <Button type="primary" onClick={addPaymentMethod}>Add</Button>
-            </div>
+                <div style={{float:"right",paddingTop:20}}>
+                    <Button type="primary" htmlType="submit" >Add Payment</Button>
+                </div>
+            </form>
 }

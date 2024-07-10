@@ -1,7 +1,6 @@
 
 import React from 'react';
-import {  Modal,Input,Button, Form } from 'antd';
-import { UserContext } from './UserContext';
+import {Input,Button } from 'antd';
 
 
 
@@ -18,7 +17,7 @@ export default function SignIn({onSucess}) {
         return <span>Hi {user}, click next to continue <Button type='primary' onClick={onSucess}>Next</Button></span>
     }
   return (
-        <div>
+        <form onSubmit={handleSubmit}>
             <p>Enter your email and password to access your account.</p>
             <div>
                 <span >name</span>
@@ -28,7 +27,9 @@ export default function SignIn({onSucess}) {
                 <span >Password</span>
                 <Input type='password' />
             </div>
-            <Button onClick={handleSubmit}>Login</Button>
-        </div>
+            <div style={{float:"right",paddingTop:20}}>
+                <Button type="primary" htmlType="submit" >Login</Button>
+            </div>
+        </form>
       );
 };
