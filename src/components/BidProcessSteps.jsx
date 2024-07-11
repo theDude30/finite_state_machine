@@ -17,7 +17,6 @@ const stateToStepIndex = {
 
 export default function BidProcessSteps({currentState}) {
     const currentStep = stateToStepIndex[currentState]
-    console.log("currentStep ",currentStep)
     const steps = [
         {
           title: 'Login',

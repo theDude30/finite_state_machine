@@ -17,11 +17,11 @@ export default function AddPaymentMethod({onSuccess}){
     }
 
 
-    return  <form onSubmit={addPaymentMethod}>
+    return  <form onSubmit={addPaymentMethod} role="form">
                 <p>Enter your payment details to add a new card.</p>
                 <div>
                     <span >card Number</span>
-                    <Input type='text'  style={{paddindRight:10}} ref={creditNumber}/>
+                    <Input type='text'  style={{paddindRight:10}} ref={creditNumber} data-testid="card-number-input"/>
                 </div>
                 <div style={{marginTop:10}}>
                     <span>Expiration</span>
@@ -31,7 +31,7 @@ export default function AddPaymentMethod({onSuccess}){
                 <Select defaultValue="Year" style={{ width: 120}}
                 options={YEARS} />
                 <p style={{marginBottom:0}}>CVV</p>
-                <Input  type='text' style={{width:100}}></Input>
+                <Input  type='text' style={{width:100}} data-testid="cvv-input"></Input>
                 <div style={{float:"right",paddingTop:20}}>
                     <Button type="primary" htmlType="submit" >Add Payment</Button>
                 </div>

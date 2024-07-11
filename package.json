@@ -108,6 +108,7 @@
     },
     "transformIgnorePatterns": [
       "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts|tsx)$",
+      "/node_modules/(?!antd|@ant-design|rc-.+?|@babel/runtime).+(js|jsx)$",
       "^.+\\.module\\.(css|sass|scss)$"
     ],
     "modulePaths": [],
@@ -135,7 +136,9 @@
   },
   "babel": {
     "presets": [
-      "react-app"
+      "react-app",
+      "@babel/preset-env",
+      "@babel/preset-react"
     ]
   },
   "devDependencies": {

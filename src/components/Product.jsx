@@ -6,7 +6,7 @@ import './Product.css'
 
 function Seller({seller}){
     return (<div>
-        <img src={sellerImg} style={{float: "left", padding: 10,width:50}}/>
+        <img src={sellerImg} style={{float: "left", padding: 10,width:50}} alt="seller_img"/>
         <div style={{display: "grid",lineHeight: "normal"}}>
         <div style={{float:"left",textAlign: "left",paddingLeft:10}}>
             <span style={{color:"black",fontWeight:"bold",textDecoration: "underline"}}>{seller.name}</span>
@@ -33,7 +33,7 @@ export default function Product({product,onBidButtonClick}) {
     return (
     <Flex gap="middle" className="product_container">
             <div className="img_container">
-            <img src={productImage} className="product_img"/>
+            <img src={productImage} className="product_img" alt="product_img"/>
             </div>
             <div className="product_details">
                 <span className="title" >{product.title}</span>
