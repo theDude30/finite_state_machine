@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/finite_state_machine/static/css/main.bb57de0d.css",
+    "main.js": "/finite_state_machine/static/js/main.1fc6b2ed.js",
+    "static/js/453.1a576201.chunk.js": "/finite_state_machine/static/js/453.1a576201.chunk.js",
+    "static/media/product-image.webp": "/finite_state_machine/static/media/product-image.31d984bdf936d3939570.webp",
+    "index.html": "/finite_state_machine/index.html",
+    "main.bb57de0d.css.map": "/finite_state_machine/static/css/main.bb57de0d.css.map",
+    "main.1fc6b2ed.js.map": "/finite_state_machine/static/js/main.1fc6b2ed.js.map",
+    "453.1a576201.chunk.js.map": "/finite_state_machine/static/js/453.1a576201.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bb57de0d.css",
+    "static/js/main.1fc6b2ed.js"
+  ]
+}
