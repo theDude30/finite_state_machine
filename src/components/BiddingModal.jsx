@@ -9,7 +9,7 @@ import BidProcessSteps from './BidProcessSteps';
 import BidAccepted from './BidAccepted';
 
 
-export default function BiddingModal(){
+export default function BiddingModal({onClose}){
 
   let user = localStorage.getItem('user');
   let paymentMethod = localStorage.getItem('hasPayment');
@@ -81,7 +81,7 @@ export default function BiddingModal(){
     }
   };
     return (
-        <Modal title="Place Bid" open width={1000}>
+        <Modal title="Place Bid" open width={1000} footer={null} onCancel={onClose}>
             <BidProcessSteps  currentState={currentState}/>
             <div style={{height:400,width:400}}>
             {renderBiddingState()}

@@ -1,4 +1,5 @@
 
+import { Divider } from "antd";
 import React from "react";
 
 
@@ -9,9 +10,8 @@ export default function AppHeader({signIn}) {
         signIn();
     }
 
-    if (!user) {
-        return <div style={{float:'left'}}><h3>Hi! <a onClick={onSignClick}>Sign in</a> or <a onClick={onSignClick}>register</a></h3></div>;
-      }
+        const header = (!user) ? <div style={{float:'left'}}><div>Hi! <a onClick={onSignClick}>Sign in</a> or <a onClick={onSignClick}>register</a></div></div> : <div style={{float:'left'}}><div>Welcome, {user}!</div></div>;
 
-      return <div style={{float:'left'}}><div>Welcome, {user}!</div></div>;
+
+      return <div>{header} <Divider style={{position: 'relative',bottom: 20,borderColor:'lightgrey',borderWidth:'medium'}}/></div>;
 }

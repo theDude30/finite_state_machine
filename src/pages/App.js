@@ -1,12 +1,13 @@
 
 import { Content, Footer, Header } from 'antd/es/layout/layout';
-import { ConfigProvider, Flex, Layout } from 'antd';
-import React from 'react';
+import { ConfigProvider, Flex, Layout, Modal } from 'antd';
+import React, { useState } from 'react';
 import AppHeader from '../components/AppHeader';
 import Product from '../components/Product';
 import AppFooter from '../components/AppFooter';
 import {MOCK_PRODUCT} from '../mocks/mockProduct';
 import BiddingModal from '../components/BiddingModal';
+import SignIn from '../components/SignIn';
 
 const layoutStyle = {
   borderRadius: 8,
@@ -17,7 +18,7 @@ const layoutStyle = {
 };
 const headerStyle: React.CSSProperties = {
   textAlign: 'center',
-  color: '#fff',
+  backgroundColor: '#f5f5f5',
   height: 64,
   paddingInline: 48,
   lineHeight: '64px'
@@ -25,15 +26,11 @@ const headerStyle: React.CSSProperties = {
 
 const contentStyle: React.CSSProperties = {
   textAlign: 'center',
-  minHeight: 800,
+  minHeight: 700,
   lineHeight: '120px'
 };
 
-const siderStyle: React.CSSProperties = {
-  textAlign: 'left',
-  lineHeight: '120px',
-  color: '#fff',
-};
+
 
 const footerStyle: React.CSSProperties = {
   textAlign: 'left',
@@ -42,17 +39,31 @@ const footerStyle: React.CSSProperties = {
 };
 
 function App() {
-
+  const [openBiddingModal,setOpenBiddingModal]= useState(false);
+  const [openSignInModal,setOpenSignInModal] = useState(false);
+  const onSigninClick = () =>{
+    setOpenSignInModal(true);
+  }
+  const onSigninClose = () =>{
+    setOpenSignInModal(false);
+  }
+  const onBidButtonClick = () =>{
+    setOpenBiddingModal(true);
+  }
+  const onBiddingModalClose = () =>{
+    setOpenBiddingModal(false);
+  }
   return (
-      <ConfigProvider >
+      <ConfigProvider>
         <Flex gap="middle" wrap>
           <Layout style={layoutStyle}>
-            <Header style={headerStyle}><AppHeader /></Header>
-            <Content style={contentStyle}><Product product={MOCK_PRODUCT} /></Content>
+            <Header style={headerStyle}><AppHeader signIn={onSigninClick}/></Header>
+            <Content style={contentStyle}><Product product={MOCK_PRODUCT} onBidButtonClick={onBidButtonClick}/></Content>
             <Footer style={footerStyle}><AppFooter /></Footer>
           </Layout>
         </Flex>
-        <BiddingModal />
+        {openBiddingModal && <BiddingModal onClose={onBiddingModalClose}/>}
+        {openSignInModal && <Modal open footer={null} onCancel={onSigninClose} ><div style={{height:200}}><SignIn onSucess={onSigninClose} /></div></Modal>}
       </ConfigProvider>
   );
 }

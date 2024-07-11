@@ -29,7 +29,7 @@ function AuctionInformation({price,bidCount}){
 }
 
 
-export default function Product({product}) {
+export default function Product({product,onBidButtonClick}) {
     return (
     <Flex gap="middle" className="product_container">
             <div className="img_container">
@@ -42,7 +42,7 @@ export default function Product({product}) {
                 <div className="auction_info">
                     <AuctionInformation price={product.price} bidCount={product.bidCount} />
                 </div>
-                <Button type="primary" className="place_bid_btn"><h3 className="place_bid_btn_label">place bid</h3></Button>
+                <Button type="primary" className="place_bid_btn" onClick={onBidButtonClick}><h3 className="place_bid_btn_label">place bid</h3></Button>
             </div>
     </Flex>)
 }
