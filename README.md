@@ -8,6 +8,7 @@ The schema the demo uses can be viewed here:
 
 mock server - [https://814bf7dff8994b558285e0fe209b494d.api.mockbin.io/](mock server)
 
+Live demo of the application - [https://thedude30.github.io/finite_state_machine](Demo link)
 
 
 ### FSM Library
