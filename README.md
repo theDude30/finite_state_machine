@@ -6,9 +6,9 @@ When button is clicked a modal will be shown and states/transitions will be rend
 The schema the demo uses can be viewed here:
 [https://stately.ai/registry/editor/a8a991e1-9a34-4e65-91fc-ed13751eaec6?mode=design&machineId=9c95303d-298e-4fd8-9606-96113121a476](schema link)
 
-mock server - [https://814bf7dff8994b558285e0fe209b494d.api.mockbin.io/](mock server)
+mock server - [https://814bf7dff8994b558285e0fe209b494d.api.mockbin.io/] (mock server)
 
-Live demo of the application - [https://thedude30.github.io/finite_state_machine](Demo link)
+Live demo of the application - [https://thedude30.github.io/finite_state_machine/] (Demo link)
 
 
 ### FSM Library
