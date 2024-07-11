@@ -1,4 +1,5 @@
 
+import React from "react";
 import { Divider, Flex,Button } from "antd";
 import productImage from '../assets/product-image.webp';
 import sellerImg from '../assets/seller_img.jpeg';
