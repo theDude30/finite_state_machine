@@ -1,7 +1,7 @@
 
 import {useState,useEffect,useCallback} from 'react';
 
-class FSM {
+export class FSM {
     constructor(conditions = {}) {
       this.conditions = conditions;
       this.states = {};
