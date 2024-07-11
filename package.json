@@ -147,6 +147,7 @@
   "devDependencies": {
     "@testing-library/dom": "^10.3.1",
     "@testing-library/react": "^16.0.0",
-    "@testing-library/react-hooks": "^8.0.1"
+    "@testing-library/react-hooks": "^8.0.1",
+    "gh-pages": "^6.1.1"
   }
 }
